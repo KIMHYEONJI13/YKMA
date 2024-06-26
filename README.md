@@ -11,7 +11,7 @@ Spring Data JPA와 React를 이용한 웹프로그램
 - Spring Data JPA
 
 ### DB
-- MySql
+- MySQL
 
 ### front
 - React
