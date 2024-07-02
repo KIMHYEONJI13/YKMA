@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ykma
+    username: ykma
+    password: ykma
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+  web:
+    resources:
+      static-locations: classpath:/uploadfiles/
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: davithjk1310@gmail.com
+    password: google49428768!
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+security:
+  oauth2:
+    client:
+      registration:
+        kakao:
+          client-id: 07f3233378b47642bb3339e9c34164ea
+          redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
+          client-authentication-method: POST
+          authorization-grant-type: authorization_code
+          scope: profile_nickname #?? ??
+          client-name: Kakao
+      provider:
+        kakao:
+          authorization-uri: https://kauth.kakao.com/oauth/authorize
+          token-uri: https://kauth.kakao.com/oauth/token
+          user-info-uri: https://kapi.kakao.com/v2/user/me
+          user-name-attribute: id
