@@ -40,7 +40,7 @@ security:
           redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
           client-authentication-method: POST
           authorization-grant-type: authorization_code
-          scope: profile_nickname #?? ??
+          scope: profile_nickname, profile_image, account_email #동의 항목
           client-name: Kakao
       provider:
         kakao:
