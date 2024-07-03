@@ -1,6 +1,5 @@
 package com.hjproject.ykma.user.entity;
 
-import com.nimbusds.oauth2.sdk.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,8 +41,10 @@ public class User {
         this.picture = picture;
     }
 
-    public enum Role {
-        USER,
-        ADMIN
+    public User update(String name) {
+        this.name = name;
+        return this;
     }
+
+
 }

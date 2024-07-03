@@ -44,18 +44,16 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         log.info("registrationId = {}", registrationId);
         log.info("userNameAttributeName = {}", userNameAttributeName);
 
-        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRole()/*.getKey()*/)),
+        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRole().getKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
-
     }
 
     private User saveOrUpdate(OAuthAttributes attributes){
-        User user =  userRepository.findOneByEmail(attributes.getEmail())
+        User user = userRepository.findOneByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName()))
                 .orElse(attributes.toEntity());
 
         return userRepository.save(user);
     }
-
 }

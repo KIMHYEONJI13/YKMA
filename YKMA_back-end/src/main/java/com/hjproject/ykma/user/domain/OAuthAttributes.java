@@ -1,7 +1,7 @@
 package com.hjproject.ykma.user.domain;
 
+import com.hjproject.ykma.user.entity.Role;
 import com.hjproject.ykma.user.entity.User;
-import com.nimbusds.oauth2.sdk.Role;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -51,6 +51,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
+                .role(Role.USER)  // 기본 역할을 USER로 설정
                 .build();
     }
 
